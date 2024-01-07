@@ -1,1 +1,20 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+:root {
+    --font-family-main: Inter, sans-serif;
+    --font-family-accent: PressStart2P, sans-serif;
+    --font-weight-card-title: 700;
+    --font-weight-card-content: 400;
+    --background-color: #FFF;
+    --color-text: #000;
+    --color-focus: rgba(0, 0, 0, .6);
+    --font-weight-title-content: 700;
+    --font-weight-main-content: 400;
+    --font-size-main: 18px;
+    --color-text-button-hover: #fff;
+    --color-contur-heart: #000;
+    --color-main-heart: #ff0000;
+    --gradient: repeating-linear-gradient(90deg, #d3d3d3 0 2px, rgba(0 0 0/ 0) 2px 4px),
+    repeating-linear-gradient(180deg, #d3d3d3 0 2px, rgba(0 0 0/ 0) 2px 4px),
+    repeating-linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a 100%);
+
+}
