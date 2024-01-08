@@ -14,31 +14,31 @@
 */
 
 @keyframes pointer {
-    0% {
-      inset-inline-start: -15px;
-    }
-  
-    50% {
-      inset-inline-start: -19px;
-    }
-  
-    100% {
-      inset-inline-start: -15px;
-    }
+  0% {
+    inset-inline-start: -15px;
   }
-  
-  @keyframes liked {
-    from {
-      transform: scale(1);
-    }
-  
-    to {
-      transform: scale(1.5);
-    }
+
+  50% {
+    inset-inline-start: -19px;
   }
-  
-  @keyframes sparks {
-    100% {
-      opacity: 1;
-    }
+
+  100% {
+    inset-inline-start: -15px;
   }
+}
+
+@keyframes liked {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.5);
+  }
+}
+
+@keyframes sparks {
+  100% {
+    opacity: 1;
+  }
+}
