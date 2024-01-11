@@ -26,7 +26,6 @@ html {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  font-family: var(--font-family-main), fantasy;
   font-variation-settings: "wght" var(--wght-content);
 }
 
