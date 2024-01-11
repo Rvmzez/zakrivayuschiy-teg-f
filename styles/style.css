@@ -20,21 +20,23 @@ html {
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-family: var(--font-family-main);
+  font-family: var(--font-family-main, Inter);
   color: var(--color-text);
   background-image: var(--gradient);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  font-family: var(--font-family-main), fantasy;
+  font-variation-settings: "wght" var(--wght-content);
 }
 
 .header {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(34.1rem, 69.7rem));
-  grid-template-rows: 36.8rem; /*  сделать гибкую высоту блока*/
+  grid-template-rows: 36.8rem;
   margin-block-start: 10em;
   justify-content: center;
-  margin-block-end: 5.3em; /*сделать гибкий*/
+  margin-block-end: 5.3em;
 }
 
 .header-block {
@@ -47,19 +49,19 @@ html {
 .header-title-text,
 .theme-menu__list,
 .theme-menu {
-  font-family: var(--font-family-accent);
+  font-family: var(--font-family-accent, PressStart2P);
   font-weight: 400;
   margin: auto;
   text-transform: uppercase;
 }
 
 .header-title {
-  font-size: calc(49px + 16 * (100vw - 371px) / 1069);
-  margin-block-start: clamp(12rem, -11.744rem + 102.4vw, 13.6rem);
+  font-size: min(calc(49px + 16 * (100vw - 371px) / 1069), 65px);
+  margin-block-start: 13.6rem;
 }
 
 .header-title-text {
-  font-size: calc(14px + 9 * (100vw - 371px) / 1069);
+  font-size: min(calc(14px + 9 * (100vw - 371px) / 1069), 23px);
   line-height: normal;
   margin-block-start: 0;
 }
@@ -81,6 +83,7 @@ html {
   font-size: 14px;
   position: relative;
   cursor: pointer;
+  transition: opacity 0.3s ease;
 }
 
 .theme-menu__button:disabled,
@@ -124,6 +127,7 @@ html {
   display: grid;
   grid-template-columns: minmax(34.1rem, 69.7rem);
   justify-content: center;
+  padding-block-end: 105px;
 }
 
 .card-content {
@@ -139,26 +143,43 @@ html {
   z-index: 1;
   inset-inline-end: 4%;
   margin-block-start: 3%;
-  font-family: var(--font-family-accent);
+  font-family: var(--font-family-accent, PressStart2P);
   text-transform: uppercase;
   color: var(--color-text);
   opacity: 0.5;
   mix-blend-mode: hard-light;
   font-size: 14px;
+  text-shadow: -1px -1px var(--background-color),
+    -2px -2px var(--background-color), -1px 1px var(--background-color),
+    -2px 2px var(--background-color), 1px 1px var(--background-color),
+    2px 2px var(--background-color), 1px -1px var(--background-color),
+    2px -2px var(--background-color);
+}
+
+@supports (
+  (text-stroke: 0.1rem var(--background-color)) or
+    (-webkit-text-stroke: 0.1rem var(--background-color))
+) {
+  .card-label {
+    text-stroke: 0.1rem var(--background-color);
+    -webkit-text-stroke: 0.1rem var(--background-color);
+    text-shadow: none;
+  }
 }
 
 .card-content_title {
-  font-weight: var(--font-weight-title-content);
-  font-size: var(--font-size-main);
+  font-variation-settings: "wght" var(--wght-title), "wdth" 0, "opsz" 0;
+  font-size: var(--font-size-main, 18px);
   line-height: normal;
   font-style: normal;
-  font-family: var(--font-family-main);
+  font-family: var(--font-family-main, Inter);
   padding: 1% 1% 1% 1.5%;
 }
 
 .card-content_image-block {
   position: relative;
-  border: 1px solid var(--color-text);
+  border-block-end: 1px solid var(--color-text);
+  border-block-start: 1px solid var(--color-text);
 }
 
 .card-content_image {
@@ -200,14 +221,14 @@ html {
 .card-content-text-block {
   display: flex;
   flex-direction: column;
-  padding: 4%;
+  padding: 3.5%;
 }
 
 .card-content_text {
-  font-weight: var(--font-weight-main-content);
-  font-size: var(--font-size-main);
-  font-family: var(--font-family-main);
-  line-height: normal;
+  font-variation-settings: "wght" var(--wght-content);
+  font-size: var(--font-size-main, 18px);
+  font-family: var(--font-family-main, Inter);
+  line-height: 21px;
   font-style: normal;
 }
 
@@ -229,7 +250,7 @@ html {
   block-size: 38px;
   border: 2px solid var(--color-text);
   background-color: transparent;
-  font-family: var(--font-family-accent);
+  font-family: var(--font-family-accent, PressStart2P);
   font-weight: 400;
   font-size: 14px;
   text-transform: capitalize;
@@ -283,7 +304,7 @@ html {
   border: none;
   inline-size: auto;
   block-size: auto;
-  padding-block-start: 4px; /*чтобы сердце было посередине*/
+  padding-block-start: 5px;
 }
 
 .card__icon-button:focus {
@@ -332,21 +353,21 @@ html {
 }
 
 .like-icon:active .main-body {
-  fill: var(--color-main-heart);
+  fill: var(--color-main-heart, #ff0000);
 }
 
 .like-icon.is-liked .core {
-  fill: var(--color-main-heart);
+  fill: var(--color-main-heart, #ff0000);
   transition: fill 0.3s linear;
 }
 
 .like-icon.is-liked .main-body {
-  fill: var(--color-main-heart);
+  fill: var(--color-main-heart, #ff0000);
   transition: fill 0.3s linear 0.05s;
 }
 
 .like-icon.is-liked .contur {
-  fill: var(--color-main-heart);
+  fill: var(--color-main-heart, #ff0000);
   transition: fill 0.3s 1 linear 0.06s;
 }
 
@@ -364,12 +385,13 @@ html {
   margin: auto;
   background-color: var(--background-color);
   border: 1px solid var(--color-text);
-  margin-block-start: 54px;
+  margin-block-start: 50px;
   padding-inline-start: 3%;
   inline-size: max(30.6rem, 33.8rem);
   block-size: 5.5rem;
   cursor: pointer;
   position: relative;
+  color: var(--color-text);
 }
 
 .button-saved:focus {
@@ -381,12 +403,44 @@ html {
   transition: box-shadow 0.3s;
 }
 
+.button-saved::after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 100%;
+  background-color: var(--color-text);
+  transition: width 0.5s;
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0;
+}
+
+.button-saved:hover::after {
+  width: 100%;
+}
+
+.button-saved_text,
+.floppy {
+  z-index: 1;
+  position: relative;
+  color: var(--color-text);
+  transition: color 0.5s;
+}
+
+.button-saved:hover .button-saved_text,
+.floppy {
+  z-index: 1;
+  position: relative;
+  color: var(--color-text-button-hover);
+  mix-blend-mode: difference;
+}
+
 .button-saved_text {
-  font-weight: var(--font-weight-main-content);
+  font-weight: var(--wght-content);
   font-size: 14px;
   line-height: normal;
   font-style: normal;
-  font-family: var(--font-family-accent);
+  font-family: var(--font-family-accent, PressStart2P);
   align-self: center;
   cursor: pointer;
   color: var(--color-text);
@@ -399,16 +453,26 @@ html {
   margin-inline-end: 8px;
 }
 
-.dialog {
+.dialog[open] {
   display: grid;
   align-items: center;
   grid-template-columns: repeat(3, auto);
-  inline-size: max(34.1rem, 35.7rem);
+  inline-size: 35.7rem;
   block-size: 24vh;
-  font-family: var(--font-family-main);
+  font-family: var(--font-family-main, Inter);
   background-color: var(--background-color);
   border: 1px solid var(--color-text);
   padding: 30px;
+  color: var(--color-text);
+}
+
+.dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.75);
+}
+
+.dialog:not([open]) {
+  pointer-events: none;
+  opacity: 0;
 }
 
 .floppy-dialog {
@@ -419,11 +483,16 @@ html {
 
 .dialog-text {
   font-size: 14px;
-  font-family: var(--font-family-accent);
+  font-family: var(--font-family-accent, PressStart2P);
   font-weight: 400;
   color: var(--color-text);
   text-transform: uppercase;
   line-height: 150%;
+  margin-block-end: 15px;
+}
+
+.dialog-form {
+  grid-column: span 3;
 }
 
 .dialog-button {
@@ -431,15 +500,14 @@ html {
   block-size: 38px;
   border: 2px solid var(--color-text);
   background-color: transparent;
-  font-family: var(--font-family-accent);
+  font-family: var(--font-family-accent, PressStart2P);
   font-weight: 400;
   font-size: 14px;
   text-transform: uppercase;
   cursor: pointer;
   align-self: center;
   color: var(--color-text);
-  margin: auto;
-  grid-column: span 3;
+  position: relative;
 }
 
 .dialog-button:focus {
@@ -451,11 +519,78 @@ html {
   transition: box-shadow 0.3s;
 }
 
-.dialog::backdrop {
-  background-color: rgb(0 0 0 / 0.75);
+.dialog-button::after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 100%;
+  background-color: var(--color-text);
+  transition: width 0.5s;
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0;
 }
 
-.dialog:not([open]) {
-  pointer-events: none;
-  opacity: 0;
+.dialog-button:hover::after {
+  width: 100%;
+}
+
+.dialog-button_text {
+  z-index: 1;
+  position: relative;
+  color: var(--color-text);
+  transition: color 0.5s;
+}
+
+.dialog-button:hover .dialog-button_text {
+  z-index: 1;
+  position: relative;
+  color: var(--color-text-button-hover);
+  mix-blend-mode: difference;
+}
+
+@media (width <= 375px) {
+  html {
+    font-size: 57%;
+  }
+
+  .header-block {
+    height: 49vh;
+  }
+
+  .header-title {
+    margin-block-end: -1.3rem;
+  }
+
+  .content {
+    padding-block-end: 102px;
+  }
+
+  .card-content_title {
+    padding: 2% 1% 2% 3%;
+  }
+
+  .card-label {
+    margin-block-start: 6%;
+  }
+
+  .card-content-text-block {
+    padding: 7%;
+  }
+
+  .floppy {
+    inline-size: 28px;
+    block-size: 28px;
+  }
+
+  .button-saved {
+    flex-direction: column;
+    block-size: 9.2rem;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .dialog[open] {
+    inline-size: 37.4rem;
+  }
 }

@@ -1,9 +1,9 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
 :root {
     --font-family-main: Inter, sans-serif;
-    --font-family-accent: PressStart2P, sans-serif;
-    --font-weight-card-title: 700;
-    --font-weight-card-content: 400;
+    --font-family-accent: PressStart2P, fantasy;
+    --wght-title: 700;
+    --wght-content: 400;
     --background-color: #FFF;
     --color-text: #000;
     --color-focus: rgba(0, 0, 0, .6);
