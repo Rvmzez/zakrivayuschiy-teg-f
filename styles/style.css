@@ -33,7 +33,7 @@ html {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(34.1rem, 69.7rem));
   grid-template-rows: 36.8rem;
-  margin-block-start: 10em;
+  margin-block-start: 10.2rem;
   justify-content: center;
   margin-block-end: 5.3em;
 }
@@ -160,8 +160,8 @@ html {
     (-webkit-text-stroke: 0.1rem var(--background-color))
 ) {
   .card-label {
-    text-stroke: 0.1rem var(--background-color);
     -webkit-text-stroke: 0.1rem var(--background-color);
+    text-stroke: 0.1rem var(--background-color);
     text-shadow: none;
   }
 }
@@ -288,12 +288,16 @@ html {
   z-index: 1;
   position: relative;
   color: var(--color-text);
-  transition: color 0.5s;
 }
 
 .card__like-button:hover .button__text {
   z-index: 1;
   position: relative;
+  color: var(--color-text-button-hover);
+  mix-blend-mode: difference;
+}
+
+.card__like-button:not(:hover) .button__text {
   color: var(--color-text-button-hover);
   mix-blend-mode: difference;
 }
@@ -367,16 +371,16 @@ html {
 
 .like-icon.is-liked .contur {
   fill: var(--color-main-heart, #ff0000);
-  transition: fill 0.3s 1 linear 0.06s;
+  transition: fill 0.3s linear 0.1s;
 }
 
 .like-icon.is-liked .heart {
-  animation: liked 0.3s 1 ease-in 0.1s;
+  animation: liked 0.3s ease-in 0.1s;
   transform-origin: center;
 }
 
 .like-icon.is-liked .sparks {
-  animation: sparks 0.3s 1 ease-in 0.3s;
+  animation: sparks 0.3s ease-in 0.3s;
 }
 
 .button-saved {
@@ -423,13 +427,18 @@ html {
   z-index: 1;
   position: relative;
   color: var(--color-text);
-  transition: color 0.5s;
 }
 
 .button-saved:hover .button-saved_text,
 .floppy {
   z-index: 1;
   position: relative;
+  color: var(--color-text-button-hover);
+  mix-blend-mode: difference;
+}
+
+.button-saved:not(:hover) .button-saved_text,
+.floppy {
   color: var(--color-text-button-hover);
   mix-blend-mode: difference;
 }
@@ -457,7 +466,6 @@ html {
   align-items: center;
   grid-template-columns: repeat(3, auto);
   inline-size: 35.7rem;
-  block-size: 24vh;
   font-family: var(--font-family-main, Inter);
   background-color: var(--background-color);
   border: 1px solid var(--color-text);
@@ -538,7 +546,6 @@ html {
   z-index: 1;
   position: relative;
   color: var(--color-text);
-  transition: color 0.5s;
 }
 
 .dialog-button:hover .dialog-button_text {
@@ -548,17 +555,28 @@ html {
   mix-blend-mode: difference;
 }
 
+.dialog-button:not(:hover) .dialog-button_text {
+  color: var(--color-text-button-hover);
+  mix-blend-mode: difference;
+}
+
 @media (width <= 375px) {
   html {
     font-size: 57%;
   }
 
-  .header-block {
-    height: 49vh;
+  .header {
+    margin-block-start: 11rem;
+    grid-template-rows: 36rem;
+    margin-block-end: 6em;
   }
 
   .header-title {
     margin-block-end: -1.3rem;
+  }
+
+  .theme-menu {
+    margin-block-start: -0.5rem;
   }
 
   .content {
@@ -580,6 +598,9 @@ html {
   .floppy {
     inline-size: 28px;
     block-size: 28px;
+    margin-block-end: 8px;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
   }
 
   .button-saved {
@@ -587,9 +608,5 @@ html {
     block-size: 9.2rem;
     justify-content: center;
     padding: 0;
-  }
-
-  .dialog[open] {
-    inline-size: 37.4rem;
   }
 }
